@@ -11,7 +11,7 @@
 
 <script>
 
-    import {mapGetters} from 'vuex'
+    import { mapGetters, mapActions } from 'vuex'
     
     export default {
         name: 'Todo',
@@ -20,7 +20,13 @@
                 
             }
         },
-        computed: mapGetters(['allTodos'])
+        methods: {
+          ...mapActions(['fetchTodos']),  
+        },
+        computed: mapGetters(['allTodos']),
+        created() {
+            this.fetchTodos()
+        }
     }
 </script>
 
