@@ -17,8 +17,17 @@
     
     export default {
         name: 'AddTodo',
+        data() {
+            return {
+                title: ""      
+            }
+        },
         methods: {
-            ...mapActions(['addTodo'])
+            ...mapActions(['addTodo']),
+            onSubmit(e) {
+                e.preventDefault()
+                this.addTodo(this.title)
+            }
         }
     }
 </script>
